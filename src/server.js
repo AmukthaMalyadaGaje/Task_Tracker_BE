@@ -10,20 +10,17 @@ dotenv.config();
 const app = express();
 
 const allowedOrigins = [
-    'http://localhost:5173/',
+    'http://localhost:5173',
     'https://task-tracker-fe.vercel.app',
     'http://task-tracker-fe.vercel.app'
 ];
 
-app.options('*', cors()); // handle preflight
-
-
 app.use(cors({
-    origin: function (origin, callback) {
+    origin(origin, cb) {
         if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
+            cb(null, true);
         } else {
-            callback(new Error('Not allowed by CORS'));
+            cb(new Error('Not allowed by CORS'));
         }
     },
     credentials: true,
@@ -31,8 +28,9 @@ app.use(cors({
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
+app.options('*', cors());
 
-app.use(express.json()); // important to be below CORS
+app.use(express.json());
 
 
 // MongoDB Connection
