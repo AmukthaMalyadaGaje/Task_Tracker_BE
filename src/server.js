@@ -16,7 +16,7 @@ const allowedOrigins = [
 ];
 
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: 'https://task-tracker-fe-ec7k.vercel.app/',
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']
