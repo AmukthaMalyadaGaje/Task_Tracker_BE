@@ -10,7 +10,7 @@ dotenv.config();
 const app = express();
 
 const allowedOrigins = [
-    'http://localhost:5173',
+    'http://localhost:517/',
     'https://task-tracker-fe.vercel.app',
     'http://task-tracker-fe.vercel.app'
 ];
