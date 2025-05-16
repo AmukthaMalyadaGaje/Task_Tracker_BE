@@ -28,7 +28,9 @@ app.use('/api/auth', require('./routes/auth'));
 app.use('/api/projects', require('./routes/projects'));
 app.use('/api/tasks', require('./routes/tasks'));
 app.use('/api/users', require('./routes/userRoutes'));
-
+app.use('/', async (req, res) => {
+    res.send("Application accepting requests")
+})
 // Error handling middleware
 app.use((err, req, res, next) => {
     console.error(err.stack);
