@@ -11,7 +11,11 @@ const app = express();
 
 // Middleware
 app.use(cors({
-    origin: ['http://localhost:5173'],
+    origin: [
+        'http://localhost:5173',
+        'https://task-tracker-fe.vercel.app',
+        'http://task-tracker-fe.vercel.app'
+    ],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     credentials: true,
     allowedHeaders: ['Content-Type', 'Authorization']
